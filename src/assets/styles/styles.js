@@ -1,6 +1,7 @@
 import { makeStyles } from '@mui/styles';
+import { height } from '@mui/system';
 
-export const useStyles = makeStyles((theme) => ({
+export const useStyles = makeStyles({
   container: {
     display: "flex",
     flexDirection: 'column',
@@ -11,18 +12,18 @@ export const useStyles = makeStyles((theme) => ({
     borderRadius: '20px',
     maxWidth: '1000px',
     boxShadow: '0px 0px 20px 1px #e95c3a',
+    overflow:'hidden',
   },
   block__form: {
-    display: 'flex',
+    display: 'flex',  
     marginBottom: '15px',
-  },
-  block__task: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
     overflowY: 'auto',
+
+  },
+  block__tasks: {
+    display: 'flex',
+    justifyContent:'center',
     maxHeight: '400px',
-    gap: '11px',
   },
   editTask: {
     display: 'flex',
@@ -69,7 +70,14 @@ export const useStyles = makeStyles((theme) => ({
 
     }
   },
-  
+  buttDisabled:{
+    '&&':{
+      '&.Mui-disabled':{
+        opacity:'0.1',
+      }
+    }
+    
+  },
 
   // root:{
   //   margin:'5px',
@@ -81,4 +89,4 @@ export const useStyles = makeStyles((theme) => ({
   //   }
   // }
 
-}))
+})
