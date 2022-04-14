@@ -8,4 +8,21 @@ body {
   font-family: Nunito,sans-serif;
   padding: 80px 0;
   height: 100vh;
+
+  
 }
+::-webkit-scrollbar {
+  width: 20px; 
+  height: 8px; 
+  background-color: #ffffff59;
+  border-radius: 0px 20px 20px 0px;
+}
+
+
+::-webkit-scrollbar-thumb {
+  background-color: #e95c3aa8;
+  border-radius: 0px 20px 20px 0px;
+}
+
+
+

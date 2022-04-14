@@ -70,7 +70,6 @@ const Item = ({ item, setTodos, todo, index }) => {
     return (
         <Box className={classes.block__tasks}>
             <Box className={item.checked ? classes.completed : classes.notСompleted} >
-                <Box>
                     <Button
                         onClick={() => upTask(index)}
                         disabled={index === 0 ? true : false}
@@ -83,18 +82,17 @@ const Item = ({ item, setTodos, todo, index }) => {
                         className={classes.buttDisabled}>
                         <ArrowDropDownIcon className={classes.colorIcon} />
                     </Button>
-                </Box>
                 {
                     selectedItem === item.id
                         ?
                         <Box className={classes.editTask}>
                             <TextField
-                                fullWidth
                                 InputProps={{ classes: { root: classes.editInput } }}
                                 type="text"
+                                fullWidth
                                 value={editTitle}
                                 onChange={(e) => setEditTitle(e.target.value)} />
-                            {/* <Button <SaveIcon className={classes.colorIcon} /></Button> */}
+                                
                         </Box>
                         :
                         <Typography className={classes.taskText}> {item.title}</Typography>
@@ -103,7 +101,7 @@ const Item = ({ item, setTodos, todo, index }) => {
                 
                     {!selectedItem ?
                         <ModeEditOutlineOutlinedIcon className={classes.colorIcon} onClick={() => onEdit(item.id, item.title)} /> : <SaveIcon onClick={() => saveTodo(item.id)} className={classes.colorIcon} />}
-                <Button aria-label="delete" onClick={() => remove(item.id)}  ><DeleteIcon className={classes.colorIcon} /> </Button>
+                <DeleteIcon onClick={() => remove(item.id)} className={classes.colorIcon} /> 
             </Box>
         </Box>
     )

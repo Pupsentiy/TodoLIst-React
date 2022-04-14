@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useStyles } from './assets/styles/styles';
 import { TextField, Box, Button } from '@mui/material';
 import { v4 as uuidv4 } from 'uuid';
@@ -6,10 +6,16 @@ import AddIcon from '@mui/icons-material/Add';
 import ListItems from './components/listItems/ListItems';
 
 const App = () => {
-  const [title, setInput] = useState('')
-  const [todo, setTodos] = useState([]);
   const classes = useStyles();
- 
+  const [title, setInput] = useState('')
+  const [todo, setTodos] = useState(
+    JSON.parse(localStorage.getItem('todo')) || []
+  );
+
+  useEffect(() => {
+		localStorage.setItem('todo', JSON.stringify(todo));
+	}, [todo]);
+
   const addTask = () => {
     const item = {
       title: title,
@@ -26,7 +32,6 @@ const App = () => {
     <Box className={classes.container}>
       <Box className={classes.block__form}>
         <TextField 
-        label="Text" 
         value={title} 
         variant="outlined" 
         onChange={event => setInput(event.target.value)} 
